@@ -23,7 +23,8 @@
               "apps/connect/web/src/assets"
             ],
             "styles": [
-              "apps/connect/web/src/styles.scss"
+              "apps/connect/web/src/styles.scss",
+              "node_modules/bootstrap/scss/bootstrap.scss"
             ],
             "scripts": []
           },
