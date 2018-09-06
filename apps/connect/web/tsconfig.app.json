@@ -1,0 +1,19 @@
+{
+  "extends": "../../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../../dist/out-tsc/apps/connect/web",
+    "types": [],
+    "baseUrl": ".",
+    "paths": {
+
+    },
+  },
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts",
+    "karma.conf.ts"
+  ],
+  "include": [
+    "**/*.ts"
+  ]
+}

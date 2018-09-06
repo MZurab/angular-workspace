@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'connect-web-base-app-menu-left-footer-controller',
+  selector: 'mz-web-base-app-menu-left-footer-controller',
   templateUrl: './app-menu-left-footer-controller.component.html',
   styleUrls: ['./app-menu-left-footer-controller.component.css']
 })

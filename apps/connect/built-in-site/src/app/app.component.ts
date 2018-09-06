@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'connect-root',
+  selector: 'mz-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor() {}
-
-  ngOnInit() {}
+  title = 'connect-built-in-site';
 }

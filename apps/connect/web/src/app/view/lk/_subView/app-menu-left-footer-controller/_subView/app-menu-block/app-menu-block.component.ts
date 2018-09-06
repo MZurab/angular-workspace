@@ -1,20 +1,13 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subject, Subscription } from 'rxjs';
-import {
-  ConnectAppsListInterface,
-  ConnectAppsStorageInterface
-} from '../../../../../../../../../../../libs/connect/app-controller/src/lib/res/@abstract/@interface/app/_sub/app-base.interface';
 import { Store } from '@ngrx/store';
-import { ConnectAppControllerInerface } from '../../../../../../../../../../../libs/connect/app-controller/src/lib/res/@abstract/@interface/app/connect-app-controller.inerface';
 // @ts-ignore
 import { ConnectAppControllerSelectors } from '@workspace/connect/app-controller';
 import { ScreenDetectorService } from '../../../../../../../../../../../libs/mz/screen-detector/src/service/screen-detector.service';
 import { takeUntil } from 'rxjs/operators';
-import { SwitchAppAction } from '../../../../../../../../../../../libs/connect/app-controller/src/lib/+state/states/actions/apps/switchApp/switch-app.action';
-import { AppsIdEnum } from '../../../../../../../../../../../libs/connect/app-controller/src/lib/res/@abstract/@enums/app/apps-id.enum';
 
 @Component({
-  selector: 'connect-web-base-app-menu-block',
+  selector: 'mz-web-base-app-menu-block',
   templateUrl: './app-menu-block.component.html',
   styleUrls: ['./app-menu-block.component.scss']
 })
