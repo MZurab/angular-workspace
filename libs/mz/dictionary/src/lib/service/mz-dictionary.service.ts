@@ -17,8 +17,8 @@ import {MzDictionaryAbstractClass} from "../res/@abstract/@class/mz-dictionary.a
 @Injectable()
 export class MzDictionaryService implements MzDictionaryServiceInterface{
   //@required - static data (get when import module by forRoot method)
-  public static type: MzDictionaryInputTypeEnum;
-  public static url: string;
+  public static type: MzDictionaryInputTypeEnum = null;
+  public static url: string = null;
 
   public snapshot: MzDictionarySnapshotType;
   public subscription$: BehaviorSubject<MzDictionarySnapshotType>;
