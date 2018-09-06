@@ -1,0 +1,95 @@
+@import "../../../app-vars";
+
+// medium || large type screen
+:host.c-sd-large, :host.c-sd-medium {
+  .block {
+    margin: auto;
+    margin-top: 1%;
+    height: 95%;
+    width: 1277px
+  }
+
+  .bigRightSide {
+    left: 100px;
+  }
+
+}
+
+// smal type screen
+:host.c-sd-small {
+  .block {
+    height: 100%;
+    width: 100%;
+
+  }
+
+  .bigRightSide {
+    left: 0px;
+
+    .header {
+      height: 10rem !important;
+      background-image: $url-background-header-mobile;
+      background-size: auto 100%;
+    }
+
+    .content {
+      top: 10rem !important;
+
+      .left-side {
+        width: 100% !important;
+        //background: green !important;
+
+      }
+      .right-side {
+        right: 100% !important;
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+// all devices
+.block {
+  position: relative;
+
+  .bigRightSide {
+    top: 0px;
+    bottom: 0px;
+    position: absolute;
+    background: #ffffff;
+    right: 0px;
+    height: 100%;
+
+
+    .header {
+      height: 120px;
+      border-bottom: 1px solid $color-border-comp-lk;
+      width: 100%;
+    }
+
+    .content {
+      position: absolute;
+      top: 120px;
+      bottom: 0px;
+      width: 100%;
+
+
+      .left-side {
+        width: 360px;
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        top: 0px;
+        border-right: 1px solid $color-border-comp-lk;
+      }
+      .right-side {
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+        top: 0px;
+        left: 360px;
+      }
+    }
+  }
+}
+

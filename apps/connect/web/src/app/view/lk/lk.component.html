@@ -1,0 +1,31 @@
+<div class="block" mz-screen-detector>
+  <connect-web-base-app-menu-block></connect-web-base-app-menu-block>
+
+  <div class="bigRightSide" mz-screen-detector>
+
+    <div class="header">
+
+    </div>
+
+    <div class="content">
+      <div class="left-side"></div>
+      <div class="right-side">
+        <div *ifScreenType="'small'">small - ifScreenType</div>
+        <div *ifScreenType="'medium'">medium - ifScreenType</div>
+        <div *ifScreenType="'large'">large - ifScreenType</div>
+
+
+        <div *ifScreenIsSmall>small - ifScreenIsSmall</div>
+        <div *ifScreenIsMedium>medium - ifScreenIsMedium</div>
+        <div *ifScreenIsLarge>large - ifScreenIsLarge</div>
+
+
+        <div *ifScreenMoreThen="'1000'">1000 - ifScreenMoreThen</div>
+        <div *ifScreenMoreThen="'600'">600 - ifScreenMoreThen</div>
+        <div *ifScreenLessThen="'600'">600 - ifScreenLessThen</div>
+        <div *ifScreenLessThen="'1000'">1000 - ifScreenLessThen</div>
+
+      </div>
+    </div>
+  </div>
+</div>

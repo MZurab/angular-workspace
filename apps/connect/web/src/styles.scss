@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+html, body {
+  margin: 0;
+  padding: 0;
+
+  /*@ - background image 1 */
+  /*background-image: url("assets/images/background/shared/background-index-deprecated.jpg");*/
+
+  /*@ - background image 2 */
+  /*background-image: url("payload:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAADCAYAAABfwxXFAAAAYklEQVQIWwFXAKj/AXRJff/8AvkA2/PoACQtLwDf5e0AEQYAABQP/gABgVyR/wkVBgDk9/QABwANAPj28QAO8PcAFwMHAAFbQ3T/+wL7AD4wOQDW4+QAIyQZANm8zQA2GicA1MwgQu1Sq8AAAAAASUVORK5CYII=");*/
+  /*background-size: 100% 100%;*/
+
+  background: linear-gradient(to right, #bccceb, #cec2e0);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+html {
+  height: 100%;
+}

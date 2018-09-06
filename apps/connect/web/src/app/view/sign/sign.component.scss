@@ -1,0 +1,86 @@
+.block.c-sd-large, .block.c-sd-medium {
+}
+
+.block.c-sd-small {
+  //background: red;
+  top: 30%;
+};
+
+.block {
+  font-family: 'Rubik', sans-serif;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  max-width: 90%;
+  width: 22.5rem;
+  height: 12.5rem;
+  border-radius: 0.5rem;
+
+  .signIn {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    input {
+      @extend .outline-none;
+      @extend .font;
+      display: block;
+      width: 90%;
+      height: 2.5rem;
+      margin: 1rem auto;
+      padding: 0.5rem;
+    }
+    button {
+      @extend .outline-none;
+      @extend .font;
+      display: block;
+      position: absolute;
+      right: 5%;
+      background: rgba(70, 173, 254, 0.8);
+      color: white;
+      cursor: pointer;
+
+      &:hover {
+        background: #46adfe;
+      }
+    }
+  }
+
+  .footer {
+    width: 90%;
+    margin: 0px 5%;
+    font-size: 0.8rem;
+    padding-bottom: 0.25rem;
+
+    .left {
+      float: left;
+    }
+    .right {
+      float: right;
+    }
+  }
+}
+
+.footer {
+  @extend .font;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
+
+  .text {
+    font-size: 1rem;
+    color: white;
+  }
+}
+
+.outline-none:focus {
+  outline:none;
+}
+.font {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 300;
+}

@@ -1,0 +1,243 @@
+// import app
+@import "../../../../../../../app-vars";
+
+
+// large and medium screens
+.menus.c-sd-large, .menus.c-sd-medium {
+  top: 0px;
+  left: 0px;
+  margin: 0px;
+  padding: 0px;
+  width: 100px;
+  height: 100%;
+  background: linear-gradient(to bottom, #454958, #20262e);
+
+  .box {
+    text-align: center;
+    height: 100px;
+    width: 100px;
+    margin: auto;
+    padding-top: 10px;
+
+    &:hover, &.active {
+      background: $icon-comp-background-color-hover;
+      color: $icon-comp-app-color-hover;
+    }
+
+    .menu {
+      .icon {
+
+      }
+    }
+  }
+}
+
+.menus.c-sd-small {
+  width: 100%;
+  z-index: 1;
+  bottom: 0rem;
+  height: 6.75rem;
+  background: white;
+
+  .footer {
+    display: none;
+  }
+
+  .box {
+    display: inline-block;
+    width: 20%;
+    min-width: 3rem;
+    height: 5rem;
+    min-height: 3rem;
+    margin-top: 1rem;
+    line-height: 100%;
+    position: absolute;
+
+
+
+    // not center button for mobile
+    &.num-1 {
+      left: 0%;
+    }
+
+    &.num-2 {
+      left: 20%;
+    }
+
+    &.num-3 {
+      left: 40%;
+    }
+
+    &.num-4 {
+      right: 20%;
+    }
+    &.num-5 {
+      right: 0%;
+    }
+
+    &.num-1, &.num-2, &.num-4, &.num-5 {
+      .menu {
+        border: 0.25rem solid $icon-mobile-app-color-base;
+        height: 70%;
+        width: 70%;
+        max-width: 56px;
+        max-height: 56px;
+
+        .icon {
+          top: -0.05rem;
+          left: -0.01rem;
+          max-height: 50px;
+          height: 100%;
+          width: 100%;
+          max-width: 50px;
+          margin: auto;
+          background-size: 100% 100%!important;
+        }
+
+        .title {
+          display: none;
+        }
+      }
+    }
+
+    // center button for mobile
+    &.num-3 {
+      .menu {
+        height: 90%;
+        width: 90%;
+        border: 0.25rem solid $icon-mobile-app-color-center;
+        top: -0.45rem;
+        position: relative;
+        max-width: 72px;
+        max-height: 72px;
+
+        .icon {
+          background-position-y: -50px;
+          top: 0.35rem;
+
+          &.app-name-chat {
+            background: $url-icon-mobile-app-chat-center;
+          }
+          &.app-name-onepay {
+            background: $url-icon-mobile-app-onepay-center;
+          }
+          &.app-name-sharepay {
+            background: $url-icon-mobile-app-sharepay-center;
+          }
+          &.app-name-edocument {
+            background: $url-icon-mobile-app-edoc-center;
+          }
+          &.app-name-market {
+            background: $url-icon-mobile-app-market-center;
+          }
+        }
+
+        .title {
+          position: absolute;
+          bottom: -25px;
+          color: $icon-mobile-app-color-center;
+          font-size: 0.85rem;
+          width: 100%;
+        }
+      }
+    }
+
+    .menu {
+      border-radius: 100%;
+      margin: auto;
+
+      &:hover {
+        background: transparent;
+      }
+
+
+
+
+      .icon {
+        vertical-align: middle;
+        position: relative;
+      }
+    }
+  }
+}
+
+.menus {
+  position: absolute;
+
+
+  .footer {
+    position: absolute;
+    bottom: 0px;
+  }
+
+  .box {
+    cursor: pointer;
+    color: $icon-comp-app-color-base;
+
+
+    &:hover, &.active {
+      .menu {
+        .icon {
+          &.app-name-chat {
+            background: $url-icon-comp-app-chat-hover;
+          }
+          &.app-name-onepay {
+            background: $url-icon-comp-app-onepay-hover;
+          }
+          &.app-name-sharepay {
+            background: $url-icon-comp-app-sharepay-hover;
+          }
+          &.app-name-edocument {
+            background: $url-icon-comp-app-edoc-hover;
+          }
+          &.app-name-market {
+            background: $url-icon-comp-app-market-hover;
+          }
+          &.account {
+            background: $url-icon-comp-account-hover;
+          }
+          &.bell {
+            background: $url-icon-comp-bell-hover;
+          }
+        }
+      }
+    }
+
+    .menu {
+      .icon {
+        height: 50px;
+        width: 50px;
+        margin: auto;
+        background-size: 100% 100% !important;
+
+        &.app-name-chat {
+          background: $url-icon-comp-app-chat-base;
+        }
+        &.app-name-onepay {
+          background: $url-icon-comp-app-onepay-base;
+        }
+        &.app-name-sharepay {
+          background: $url-icon-comp-app-sharepay-base;
+        }
+        &.app-name-edocument {
+          background: $url-icon-comp-app-edoc-base;
+        }
+        &.app-name-market {
+          background: $url-icon-comp-app-market-base;
+        }
+        &.account {
+          background: $url-icon-comp-account-base;
+        }
+        &.bell {
+          background: $url-icon-comp-bell-base;
+        }
+      }
+
+      .title {
+        font-size: 0.8rem;
+        margin: auto;
+        text-align: center;
+      }
+    }
+  }
+}
