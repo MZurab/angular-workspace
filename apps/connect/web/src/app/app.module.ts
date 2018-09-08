@@ -11,6 +11,8 @@ import {AppMenuLeftFooterControllerComponent} from "./view/lk/_subView/app-menu-
 import {isPlatformBrowser} from "@angular/common";
 import {StoreModule} from "@ngrx/store";
 import {MzDictionaryInputTypeEnum} from "../../../../../libs/mz/dictionary/src/lib/res/@abstract/@enum/mz-common.enum";
+import {ConnectAppControllerModule} from "../../../../../libs/connect/app-controller/src";
+import {reducers} from "./reducers";
 
 @NgModule({
   declarations: [
@@ -40,6 +42,10 @@ import {MzDictionaryInputTypeEnum} from "../../../../../libs/mz/dictionary/src/l
     //     initialState: connectAppControllerInitialState
     //   }
     // ),
+
+    StoreModule.forRoot(reducers),
+    ConnectAppControllerModule,
+
     MzDictionaryModule,
     MzScreenDetectorModule.forRoot({
         medium: 768,

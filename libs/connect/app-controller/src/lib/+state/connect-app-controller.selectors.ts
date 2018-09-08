@@ -16,6 +16,7 @@ const getConnectAppControllerState = createFeatureSelector<
 const getApps = createSelector(
   getConnectAppControllerState,
   (state: ConnectAppControllerInerface): ConnectAppsInterface => {
+    console.log( 'createSelector - state', state);
     return state.apps;
   }
 );

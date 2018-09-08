@@ -27,6 +27,9 @@
     },
     "connect-built-in-site-e2e": {
       "tags": []
+    },
+    "connect-app-controller": {
+      "tags": []
     }
   }
 }

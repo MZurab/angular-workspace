@@ -63,9 +63,10 @@ export const initialState: any = { //ConnectAppControllerInerface
 };
 
 export function connectAppControllerReducer(
-  state = initialState, // : ConnectAppControllerInerface
+  state: ConnectAppControllerInerface = initialState, // : ConnectAppControllerInerface
   action: { payload: any; type: string } //ConnectAppControllerAction
 ) { //: ConnectAppControllerInerface {
+  console.log( 'connectAppControllerReducer - state, action', state, action );
   switch (action.type) {
     case ConnectAppControllerActionTypes.appSwitchApp:
       state = SwitchAppReducerAction(state, action);

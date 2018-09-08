@@ -329,6 +329,34 @@
           }
         }
       }
+    },
+    "connect-app-controller": {
+      "root": "libs/connect/app-controller",
+      "sourceRoot": "libs/connect/app-controller/src",
+      "projectType": "library",
+      "prefix": "mz",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/connect/app-controller/src/test.ts",
+            "tsConfig": "libs/connect/app-controller/tsconfig.spec.json",
+            "karmaConfig": "libs/connect/app-controller/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/connect/app-controller/tsconfig.lib.json",
+              "libs/connect/app-controller/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {

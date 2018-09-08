@@ -21,6 +21,9 @@
       ],
       "@mz/mz/screen-detector": [
         "libs/mz/screen-detector/src/index.ts"
+      ],
+      "@mz/connect/app-controller": [
+        "libs/connect/app-controller/src/index.ts"
       ]
     }
   },
