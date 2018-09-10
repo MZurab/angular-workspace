@@ -92,7 +92,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/connect-built-in-site/production/1536521444429-2018-09-09T19:30:44.429Z/connect-built-in-site.zip"
+          "S3Key": "serverless/connect-built-in-site/production/1536608256676-2018-09-10T19:37:36.676Z/connect-built-in-site.zip"
         },
         "FunctionName": "connect-built-in-site-production-api",
         "Handler": "lambda.universal",
@@ -111,14 +111,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "ApiLambdaVersiondpEexoVjJHKgLf0lI3l3eEgt1rUf8MnQBlcPGk35DBY": {
+    "ApiLambdaVersionGd63lHcpjoEeqtZVCdZXdqxvsAXzdg77mVjVnDvUto": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "ApiLambdaFunction"
         },
-        "CodeSha256": "cEbxxYz/EPjmn2WN+0EnHFSzGERyz9MD38J0tmSk2MM="
+        "CodeSha256": "JDdP7z3XPjv/PDZ+E2Xe1PqL84069iGhDvgoxf4pudE="
       }
     },
     "ApiGatewayRestApi": {
@@ -236,7 +236,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1536521445341": {
+    "ApiGatewayDeployment1536608257804": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -306,7 +306,7 @@
     "ApiLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "ApiLambdaVersiondpEexoVjJHKgLf0lI3l3eEgt1rUf8MnQBlcPGk35DBY"
+        "Ref": "ApiLambdaVersionGd63lHcpjoEeqtZVCdZXdqxvsAXzdg77mVjVnDvUto"
       }
     },
     "ServiceEndpoint": {
