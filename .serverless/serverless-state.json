@@ -1,8 +1,8 @@
 {
   "service": {
-    "service": "connect-built-in-site",
+    "service": "angular-universal",
     "serviceObject": {
-      "name": "connect-built-in-site"
+      "name": "angular-universal"
     },
     "provider": {
       "stage": "production",
@@ -21,10 +21,10 @@
           "ServerlessDeploymentBucket": {
             "Type": "AWS::S3::Bucket"
           },
-          "ApiLogGroup": {
+          "ConnectDashbuiltDashinDashsiteLogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
-              "LogGroupName": "/aws/lambda/connect-built-in-site-production-api"
+              "LogGroupName": "/aws/lambda/angular-universal-production-connect-built-in-site"
             }
           },
           "IamRoleLambdaExecution": {
@@ -53,7 +53,7 @@
                       "-",
                       [
                         "production",
-                        "connect-built-in-site",
+                        "angular-universal",
                         "lambda"
                       ]
                     ]
@@ -68,7 +68,7 @@
                         ],
                         "Resource": [
                           {
-                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/connect-built-in-site-production-api:*"
+                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/angular-universal-production-connect-built-in-site:*"
                           }
                         ]
                       },
@@ -79,7 +79,7 @@
                         ],
                         "Resource": [
                           {
-                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/connect-built-in-site-production-api:*:*"
+                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/angular-universal-production-connect-built-in-site:*:*"
                           }
                         ]
                       }
@@ -92,7 +92,7 @@
                 "Fn::Join": [
                   "-",
                   [
-                    "connect-built-in-site",
+                    "angular-universal",
                     "production",
                     "eu-west-1",
                     "lambdaRole"
@@ -101,17 +101,17 @@
               }
             }
           },
-          "ApiLambdaFunction": {
+          "ConnectDashbuiltDashinDashsiteLambdaFunction": {
             "Type": "AWS::Lambda::Function",
             "Properties": {
               "Code": {
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/connect-built-in-site/production/1536521444429-2018-09-09T19:30:44.429Z/connect-built-in-site.zip"
+                "S3Key": "serverless/angular-universal/production/1536605766020-2018-09-10T18:56:06.020Z/angular-universal.zip"
               },
-              "FunctionName": "connect-built-in-site-production-api",
-              "Handler": "lambda.universal",
+              "FunctionName": "angular-universal-production-connect-built-in-site",
+              "Handler": "@server-side/connect-built-in-site/lambda.universal",
               "MemorySize": 192,
               "Role": {
                 "Fn::GetAtt": [
@@ -123,24 +123,24 @@
               "Timeout": 10
             },
             "DependsOn": [
-              "ApiLogGroup",
+              "ConnectDashbuiltDashinDashsiteLogGroup",
               "IamRoleLambdaExecution"
             ]
           },
-          "ApiLambdaVersiondpEexoVjJHKgLf0lI3l3eEgt1rUf8MnQBlcPGk35DBY": {
+          "ConnectDashbuiltDashinDashsiteLambdaVersionlwM04j6SAztuPNTzgjcMWCc24KjSqREntfjcQ6fZE": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
-                "Ref": "ApiLambdaFunction"
+                "Ref": "ConnectDashbuiltDashinDashsiteLambdaFunction"
               },
-              "CodeSha256": "cEbxxYz/EPjmn2WN+0EnHFSzGERyz9MD38J0tmSk2MM="
+              "CodeSha256": "svWTvUOZGpgL+l+0FSiM8M5UZPuTkET1FP2dmx2KjJY="
             }
           },
           "ApiGatewayRestApi": {
             "Type": "AWS::ApiGateway::RestApi",
             "Properties": {
-              "Name": "production-connect-built-in-site",
+              "Name": "production-angular-universal",
               "EndpointConfiguration": {
                 "Types": [
                   "EDGE"
@@ -194,7 +194,7 @@
                       ":lambda:path/2015-03-31/functions/",
                       {
                         "Fn::GetAtt": [
-                          "ApiLambdaFunction",
+                          "ConnectDashbuiltDashinDashsiteLambdaFunction",
                           "Arn"
                         ]
                       },
@@ -240,7 +240,7 @@
                       ":lambda:path/2015-03-31/functions/",
                       {
                         "Fn::GetAtt": [
-                          "ApiLambdaFunction",
+                          "ConnectDashbuiltDashinDashsiteLambdaFunction",
                           "Arn"
                         ]
                       },
@@ -252,7 +252,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1536521445341": {
+          "ApiGatewayDeployment1536605767077": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -265,12 +265,12 @@
               "ApiGatewayMethodAny"
             ]
           },
-          "ApiLambdaPermissionApiGateway": {
+          "ConnectDashbuiltDashinDashsiteLambdaPermissionApiGateway": {
             "Type": "AWS::Lambda::Permission",
             "Properties": {
               "FunctionName": {
                 "Fn::GetAtt": [
-                  "ApiLambdaFunction",
+                  "ConnectDashbuiltDashinDashsiteLambdaFunction",
                   "Arn"
                 ]
               },
@@ -319,10 +319,10 @@
               "Ref": "ServerlessDeploymentBucket"
             }
           },
-          "ApiLambdaFunctionQualifiedArn": {
+          "ConnectDashbuiltDashinDashsiteLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ApiLambdaVersiondpEexoVjJHKgLf0lI3l3eEgt1rUf8MnQBlcPGk35DBY"
+              "Ref": "ConnectDashbuiltDashinDashsiteLambdaVersionlwM04j6SAztuPNTzgjcMWCc24KjSqREntfjcQ6fZE"
             }
           },
           "ServiceEndpoint": {
@@ -375,8 +375,8 @@
       "serverless-apigw-binary"
     ],
     "functions": {
-      "api": {
-        "handler": "lambda.universal",
+      "connect-built-in-site": {
+        "handler": "@server-side/connect-built-in-site/lambda.universal",
         "events": [
           {
             "http": "ANY {proxy+}"
@@ -385,15 +385,15 @@
             "http": "ANY /"
           }
         ],
-        "name": "connect-built-in-site-production-api",
+        "name": "angular-universal-production-connect-built-in-site",
         "package": {},
         "vpc": {}
       }
     },
-    "artifact": "/Users/zurab/MyWorks/Angular/angular-workspace/.serverless/connect-built-in-site.zip"
+    "artifact": "/Users/zurab/MyWorks/Angular/angular-workspace/.serverless/angular-universal.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/connect-built-in-site/production/1536521444429-2018-09-09T19:30:44.429Z",
-    "artifact": "connect-built-in-site.zip"
+    "artifactDirectoryName": "serverless/angular-universal/production/1536605766020-2018-09-10T18:56:06.020Z",
+    "artifact": "angular-universal.zip"
   }
 }
