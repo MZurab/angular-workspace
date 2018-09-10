@@ -300,6 +300,24 @@
               "**/node_modules/**"
             ]
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/apps/connect/built-in-site-server",
+            "main": "apps/connect/built-in-site/src/main.server.ts",
+            "tsConfig": "apps/connect/built-in-site/tsconfig.server.json"
+          },
+          "configurations": {
+            "serverless": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/connect/built-in-site/src/environments/environment.ts",
+                  "with": "apps/connect/built-in-site/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
         }
       }
     },

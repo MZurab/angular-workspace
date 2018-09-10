@@ -22,7 +22,7 @@ import 'zone.js/dist/zone-node';
     
     // const DIST_FOLDER = join(process.cwd(), 'dist');
     
-    const {AppServerModuleNgFactory, LAZY_MODULE_MAP} = require('./dist/connect-web-server/main');
+    const {AppServerModuleNgFactory, LAZY_MODULE_MAP} = require('./dist/apps/connect/built-in-site-server/main');
     
     app.engine('html', ngExpressEngine({
       bootstrap: AppServerModuleNgFactory,
@@ -32,14 +32,14 @@ import 'zone.js/dist/zone-node';
     }));
     
     app.set('view engine', 'html');
-    app.set('views', './dist/browser');
+    app.set('views', './dist/apps/connect/built-in-site');
     
     app.get('/redirect/**', (req, res) => {
       const location = req.url.substring(10);
       res.redirect(301, location);
     });
     
-    app.get('*.*', express.static('./dist/browser', {
+    app.get('*.*', express.static('./dist/apps/connect/built-in-site', {
       maxAge: '1y'
     }));
     
@@ -53,18 +53,3 @@ import 'zone.js/dist/zone-node';
         }
       });
     });
-
-//
-import * as awsServerlessExpress from 'aws-serverless-express';
-import {Handler} from "aws-lambda";
-
-const server = awsServerlessExpress.createServer(app);
-
-const handler: Handler = function (event, context, callback) {
-  console.log('awsServerlessExpress 5 - event, context, callback', event, context, callback);
-
-  context.succeed({ 'status' : 1 });
-  awsServerlessExpress.proxy(server, event, context)
-}
-
-export {handler}
