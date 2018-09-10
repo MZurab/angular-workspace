@@ -108,7 +108,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/angular-universal/production/1536605766020-2018-09-10T18:56:06.020Z/angular-universal.zip"
+                "S3Key": "serverless/angular-universal/production/1536610664669-2018-09-10T20:17:44.669Z/angular-universal.zip"
               },
               "FunctionName": "angular-universal-production-connect-built-in-site",
               "Handler": "@server-side/connect-built-in-site/lambda.universal",
@@ -127,14 +127,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "ConnectDashbuiltDashinDashsiteLambdaVersionlwM04j6SAztuPNTzgjcMWCc24KjSqREntfjcQ6fZE": {
+          "ConnectDashbuiltDashinDashsiteLambdaVersionrM95r2lPAJdH0Iq8SIzExFFByNp2pehGXgI1NViAqA": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "ConnectDashbuiltDashinDashsiteLambdaFunction"
               },
-              "CodeSha256": "svWTvUOZGpgL+l+0FSiM8M5UZPuTkET1FP2dmx2KjJY="
+              "CodeSha256": "FKTPZGqh/TVhBPf47+dq3rVfKXPiaY9h/sp+VtuIDV4="
             }
           },
           "ApiGatewayRestApi": {
@@ -252,7 +252,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1536605767077": {
+          "ApiGatewayDeployment1536610665605": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -322,7 +322,7 @@
           "ConnectDashbuiltDashinDashsiteLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ConnectDashbuiltDashinDashsiteLambdaVersionlwM04j6SAztuPNTzgjcMWCc24KjSqREntfjcQ6fZE"
+              "Ref": "ConnectDashbuiltDashinDashsiteLambdaVersionrM95r2lPAJdH0Iq8SIzExFFByNp2pehGXgI1NViAqA"
             }
           },
           "ServiceEndpoint": {
@@ -393,7 +393,7 @@
     "artifact": "/Users/zurab/MyWorks/Angular/angular-workspace/.serverless/angular-universal.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/angular-universal/production/1536605766020-2018-09-10T18:56:06.020Z",
+    "artifactDirectoryName": "serverless/angular-universal/production/1536610664669-2018-09-10T20:17:44.669Z",
     "artifact": "angular-universal.zip"
   }
 }

@@ -21,6 +21,7 @@ import 'zone.js/dist/zone-node';
     app.use(bodyParser.urlencoded({ extended: true }));
     
     // const DIST_FOLDER = join(process.cwd(), 'dist');
+    //../dist/apps/connect/built-in-site-server/main
     
     const {AppServerModuleNgFactory, LAZY_MODULE_MAP} = require('./../../dist/apps/connect/built-in-site-server/main');
     
@@ -32,14 +33,14 @@ import 'zone.js/dist/zone-node';
     }));
     
     app.set('view engine', 'html');
-    app.set('views', './../../dist/apps/connect/built-in-site');
+    app.set('views', './dist/apps/connect/built-in-site');
     
     app.get('/redirect/**', (req, res) => {
       const location = req.url.substring(10);
       res.redirect(301, location);
     });
     
-    app.get('*.*', express.static('./../../dist/apps/connect/built-in-site', {
+    app.get('*.*', express.static('./dist/apps/connect/built-in-site', {
       maxAge: '1y'
     }));
     
