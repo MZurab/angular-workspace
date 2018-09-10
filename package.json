@@ -24,20 +24,15 @@
     "workspace-schematic": "./node_modules/.bin/nx workspace-schematic",
     "dep-graph": "./node_modules/.bin/nx dep-graph",
     "help": "./node_modules/.bin/nx help",
-    "build:browser:prod": "ng build --prod --project=connect-built-in-site",
 
-    "build:server:serverless": "ng run connect-built-in-site:server:serverless",
-    "build:browser:serverless": "ng build --prod --base-href /production/ --project=connect-built-in-site",
-    "build:serverless": "npm run build:browser:serverless && npm run build:server:serverless",
-    "build:serverless:deploy": "npm run build:serverless && npm run deploy",
 
-    "build:prod": "npm run build:browser:prod && npm run build:server:prod",
+    "connect-built-in-site:build:browser:serverless": "ng build --prod --base-href /production/ --project=connect-built-in-site",
+    "connect-built-in-site:build:server:serverless": "ng run connect-built-in-site:server:serverless && webpack --config='@server-side/connect-built-in-site/webpack.server.config.js' --progress --colors",
+    "connect-built-in-site:build:serverless": "npm run connect-built-in-site:build:browser:serverless && npm run connect-built-in-site:build:server:serverless",
+    "connect-built-in-site:build:serverless:deploy": "npm run connect-built-in-site:build:serverless && npm run deploy",
+
     "server": "node local.js",
-    "build:prod:deploy": "npm run build:prod && npm run deploy",
-    "deploy": "serverless deploy",
-    "build:server:prod": "webpack --config webpack.server.config.js --progress",
-    "build:server:serverless2": "webpack --config webpack.server.config.js --progress"
-
+    "deploy": "serverless deploy"
   },
   "private": true,
   "dependencies": {

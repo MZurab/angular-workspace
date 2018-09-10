@@ -52,7 +52,7 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/angular-universal-production-connect-built-in-site:*"
+                      "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/angular-universal-production-connect-built-in-site:*"
                     }
                   ]
                 },
@@ -63,7 +63,7 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/angular-universal-production-connect-built-in-site:*:*"
+                      "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/angular-universal-production-connect-built-in-site:*:*"
                     }
                   ]
                 }
@@ -92,7 +92,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/angular-universal/production/1536610664669-2018-09-10T20:17:44.669Z/angular-universal.zip"
+          "S3Key": "serverless/angular-universal/production/1536617319587-2018-09-10T22:08:39.587Z/angular-universal.zip"
         },
         "FunctionName": "angular-universal-production-connect-built-in-site",
         "Handler": "@server-side/connect-built-in-site/lambda.universal",
@@ -111,14 +111,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "ConnectDashbuiltDashinDashsiteLambdaVersionrM95r2lPAJdH0Iq8SIzExFFByNp2pehGXgI1NViAqA": {
+    "ConnectDashbuiltDashinDashsiteLambdaVersionbzgc0LL47I9o2uylsqzGcPMZHAlcKzfvXUTtPGzVkY": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "ConnectDashbuiltDashinDashsiteLambdaFunction"
         },
-        "CodeSha256": "FKTPZGqh/TVhBPf47+dq3rVfKXPiaY9h/sp+VtuIDV4="
+        "CodeSha256": "o8XidmgD1uyE1xZa6LdqY8dBkdEVU0fnvPVxJrqFePw="
       }
     },
     "ApiGatewayRestApi": {
@@ -167,11 +167,7 @@
             "Fn::Join": [
               "",
               [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition"
-                },
-                ":apigateway:",
+                "arn:aws:apigateway:",
                 {
                   "Ref": "AWS::Region"
                 },
@@ -213,11 +209,7 @@
             "Fn::Join": [
               "",
               [
-                "arn:",
-                {
-                  "Ref": "AWS::Partition"
-                },
-                ":apigateway:",
+                "arn:aws:apigateway:",
                 {
                   "Ref": "AWS::Region"
                 },
@@ -236,7 +228,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1536610665605": {
+    "ApiGatewayDeployment1536617320636": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -259,26 +251,12 @@
           ]
         },
         "Action": "lambda:InvokeFunction",
-        "Principal": {
-          "Fn::Join": [
-            "",
-            [
-              "apigateway.",
-              {
-                "Ref": "AWS::URLSuffix"
-              }
-            ]
-          ]
-        },
+        "Principal": "apigateway.amazonaws.com",
         "SourceArn": {
           "Fn::Join": [
             "",
             [
-              "arn:",
-              {
-                "Ref": "AWS::Partition"
-              },
-              ":execute-api:",
+              "arn:aws:execute-api:",
               {
                 "Ref": "AWS::Region"
               },
@@ -306,7 +284,7 @@
     "ConnectDashbuiltDashinDashsiteLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "ConnectDashbuiltDashinDashsiteLambdaVersionrM95r2lPAJdH0Iq8SIzExFFByNp2pehGXgI1NViAqA"
+        "Ref": "ConnectDashbuiltDashinDashsiteLambdaVersionbzgc0LL47I9o2uylsqzGcPMZHAlcKzfvXUTtPGzVkY"
       }
     },
     "ServiceEndpoint": {
@@ -319,11 +297,7 @@
             {
               "Ref": "ApiGatewayRestApi"
             },
-            ".execute-api.eu-west-1.",
-            {
-              "Ref": "AWS::URLSuffix"
-            },
-            "/production"
+            ".execute-api.eu-west-1.amazonaws.com/production"
           ]
         ]
       }

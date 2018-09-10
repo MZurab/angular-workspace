@@ -7,14 +7,14 @@ const appName = 'connect-built-in-site',
 
 module.exports = {
   entry: {
-    server: './server.ts',
+    server: './@server-side/connect-built-in-site/server.ts',
   },
   target: 'node',
   resolve: { extensions: ['.ts', '.js'] },
   externals: [/(node_modules|main\..*\.js)/,],
   output: {
     libraryTarget: 'commonjs2',
-    path: path.join(__dirname, '../../dist'),
+    path: path.join(__dirname, './../../dist'),
     filename: `${appName}-[name].js`
   },
   module: {
