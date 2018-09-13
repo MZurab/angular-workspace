@@ -1,8 +1,8 @@
 {
   "extends": "./tsconfig.app.json",
   "compilerOptions": {
-    "outDir": "../../../dist/out-tsc/apps/connect/built-in-site-server",
-    "baseUrl": "."
+    "outDir": "../../../dist/out-tsc/apps/connect/built-in-site-server"
+
   },
   "angularCompilerOptions": {
     "entryModule": "src/app/app.server.module#AppServerModule"

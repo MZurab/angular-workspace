@@ -4,9 +4,7 @@
     "outDir": "../../../dist/out-tsc/apps/connect/web",
     "types": [],
     "baseUrl": ".",
-    "paths": {
 
-    },
   },
   "exclude": [
     "test.ts",

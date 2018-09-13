@@ -14,6 +14,7 @@ provider:
 
 package:
   exclude:
+   - node_modules/**
    - src/**
    - firebug-lite/**
    - e2e/**
@@ -34,6 +35,11 @@ custom:
 functions:
   connect-built-in-site:
     handler: '@server-side/connect-built-in-site/lambda.universal'
+    events:
+      - http: ANY {proxy+}
+      - http: ANY /
+  connect-web:
+    handler: '@server-side/connect-web/lambda.universal'
     events:
       - http: ANY {proxy+}
       - http: ANY /

@@ -97,9 +97,19 @@
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "dist/connect-web-server",
+            "outputPath": "dist/apps/connect/web-server",
             "main": "apps/connect/web/src/main.server.ts",
             "tsConfig": "apps/connect/web/tsconfig.server.json"
+          },
+          "configurations": {
+            "serverless": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/connect/web/src/environments/environment.ts",
+                  "with": "apps/connect/web/src/environments/environment.prod.ts"
+                }
+              ]
+            }
           }
         }
       }

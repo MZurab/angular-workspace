@@ -8,11 +8,12 @@ import {SignComponent} from "./view/sign/sign.component";
 import {LkComponent} from "./view/lk/lk.component";
 import {AppMenuBlockComponent} from "./view/lk/_subView/app-menu-left-footer-controller/_subView/app-menu-block/app-menu-block.component";
 import {AppMenuLeftFooterControllerComponent} from "./view/lk/_subView/app-menu-left-footer-controller/app-menu-left-footer-controller.component";
-import {isPlatformBrowser} from "@angular/common";
+import {CommonModule, isPlatformBrowser} from "@angular/common";
 import {StoreModule} from "@ngrx/store";
 import {MzDictionaryInputTypeEnum} from "../../../../../libs/mz/dictionary/src/lib/res/@abstract/@enum/mz-common.enum";
 import {ConnectAppControllerModule} from "../../../../../libs/connect/app-controller/src";
 import {reducers} from "./reducers";
+import {NgtUniversalModule} from "@ng-toolkit/universal";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {reducers} from "./reducers";
     AppMenuLeftFooterControllerComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'connect-web' }),
+    CommonModule,
+    NgtUniversalModule,
     NxModule.forRoot(),
     // StoreModule.forRoot({ connect: connectAppControllerReducer }),
     // ApolloBoostModule,

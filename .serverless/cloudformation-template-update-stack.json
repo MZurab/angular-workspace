@@ -5,10 +5,10 @@
     "ServerlessDeploymentBucket": {
       "Type": "AWS::S3::Bucket"
     },
-    "ConnectDashbuiltDashinDashsiteLogGroup": {
+    "ConnectDashwebLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/angular-universal-production-connect-built-in-site"
+        "LogGroupName": "/aws/lambda/angular-universal-production-connect-web"
       }
     },
     "IamRoleLambdaExecution": {
@@ -52,7 +52,7 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/angular-universal-production-connect-built-in-site:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/angular-universal-production-connect-web:*"
                     }
                   ]
                 },
@@ -63,7 +63,7 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/angular-universal-production-connect-built-in-site:*:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/angular-universal-production-connect-web:*:*"
                     }
                   ]
                 }
@@ -85,17 +85,17 @@
         }
       }
     },
-    "ConnectDashbuiltDashinDashsiteLambdaFunction": {
+    "ConnectDashwebLambdaFunction": {
       "Type": "AWS::Lambda::Function",
       "Properties": {
         "Code": {
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/angular-universal/production/1536617319587-2018-09-10T22:08:39.587Z/angular-universal.zip"
+          "S3Key": "serverless/angular-universal/production/1536871208237-2018-09-13T20:40:08.237Z/angular-universal.zip"
         },
-        "FunctionName": "angular-universal-production-connect-built-in-site",
-        "Handler": "@server-side/connect-built-in-site/lambda.universal",
+        "FunctionName": "angular-universal-production-connect-web",
+        "Handler": "@server-side/connect-web/lambda.universal",
         "MemorySize": 192,
         "Role": {
           "Fn::GetAtt": [
@@ -107,18 +107,18 @@
         "Timeout": 10
       },
       "DependsOn": [
-        "ConnectDashbuiltDashinDashsiteLogGroup",
+        "ConnectDashwebLogGroup",
         "IamRoleLambdaExecution"
       ]
     },
-    "ConnectDashbuiltDashinDashsiteLambdaVersionbzgc0LL47I9o2uylsqzGcPMZHAlcKzfvXUTtPGzVkY": {
+    "ConnectDashwebLambdaVersionc6rzJakWwjNGg4Zh3tph1lSTi5QOTKF06QFLuPORuUg": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
-          "Ref": "ConnectDashbuiltDashinDashsiteLambdaFunction"
+          "Ref": "ConnectDashwebLambdaFunction"
         },
-        "CodeSha256": "o8XidmgD1uyE1xZa6LdqY8dBkdEVU0fnvPVxJrqFePw="
+        "CodeSha256": "r2O4ywm3HsH55pDMWM4+OogimhhI5wf0bjknOxmcHH8="
       }
     },
     "ApiGatewayRestApi": {
@@ -167,14 +167,18 @@
             "Fn::Join": [
               "",
               [
-                "arn:aws:apigateway:",
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":apigateway:",
                 {
                   "Ref": "AWS::Region"
                 },
                 ":lambda:path/2015-03-31/functions/",
                 {
                   "Fn::GetAtt": [
-                    "ConnectDashbuiltDashinDashsiteLambdaFunction",
+                    "ConnectDashwebLambdaFunction",
                     "Arn"
                   ]
                 },
@@ -209,14 +213,18 @@
             "Fn::Join": [
               "",
               [
-                "arn:aws:apigateway:",
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":apigateway:",
                 {
                   "Ref": "AWS::Region"
                 },
                 ":lambda:path/2015-03-31/functions/",
                 {
                   "Fn::GetAtt": [
-                    "ConnectDashbuiltDashinDashsiteLambdaFunction",
+                    "ConnectDashwebLambdaFunction",
                     "Arn"
                   ]
                 },
@@ -228,7 +236,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1536617320636": {
+    "ApiGatewayDeployment1536871208333": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -241,22 +249,36 @@
         "ApiGatewayMethodAny"
       ]
     },
-    "ConnectDashbuiltDashinDashsiteLambdaPermissionApiGateway": {
+    "ConnectDashwebLambdaPermissionApiGateway": {
       "Type": "AWS::Lambda::Permission",
       "Properties": {
         "FunctionName": {
           "Fn::GetAtt": [
-            "ConnectDashbuiltDashinDashsiteLambdaFunction",
+            "ConnectDashwebLambdaFunction",
             "Arn"
           ]
         },
         "Action": "lambda:InvokeFunction",
-        "Principal": "apigateway.amazonaws.com",
+        "Principal": {
+          "Fn::Join": [
+            "",
+            [
+              "apigateway.",
+              {
+                "Ref": "AWS::URLSuffix"
+              }
+            ]
+          ]
+        },
         "SourceArn": {
           "Fn::Join": [
             "",
             [
-              "arn:aws:execute-api:",
+              "arn:",
+              {
+                "Ref": "AWS::Partition"
+              },
+              ":execute-api:",
               {
                 "Ref": "AWS::Region"
               },
@@ -281,10 +303,10 @@
         "Ref": "ServerlessDeploymentBucket"
       }
     },
-    "ConnectDashbuiltDashinDashsiteLambdaFunctionQualifiedArn": {
+    "ConnectDashwebLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "ConnectDashbuiltDashinDashsiteLambdaVersionbzgc0LL47I9o2uylsqzGcPMZHAlcKzfvXUTtPGzVkY"
+        "Ref": "ConnectDashwebLambdaVersionc6rzJakWwjNGg4Zh3tph1lSTi5QOTKF06QFLuPORuUg"
       }
     },
     "ServiceEndpoint": {
@@ -297,7 +319,11 @@
             {
               "Ref": "ApiGatewayRestApi"
             },
-            ".execute-api.eu-west-1.amazonaws.com/production"
+            ".execute-api.eu-west-1.",
+            {
+              "Ref": "AWS::URLSuffix"
+            },
+            "/production"
           ]
         ]
       }

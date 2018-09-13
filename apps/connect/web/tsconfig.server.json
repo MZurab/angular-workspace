@@ -2,7 +2,18 @@
   "extends": "./tsconfig.app.json",
   "compilerOptions": {
     "outDir": "../../../dist/out-tsc/apps/connect/web-server",
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "@mz/mz/dictionary": [
+        "../../../libs/mz/dictionary/src/index.ts"
+      ],
+      "@mz/mz/screen-detector": [
+        "../../../libs/mz/screen-detector/src/index.ts"
+      ],
+      "@mz/connect/app-controller": [
+        "../../../libs/connect/app-controller/src/index.ts"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "entryModule": "src/app/app.server.module#AppServerModule"

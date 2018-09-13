@@ -3,6 +3,7 @@
   "compilerOptions": {
     "outDir": "../../../dist/out-tsc/apps/connect/built-in-site",
     "types": []
+
   },
   "exclude": [
     "test.ts",
